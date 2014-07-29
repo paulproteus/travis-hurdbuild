@@ -10,3 +10,13 @@ tar zxvf debian-hurd.img.tar.gz
 
 # Make sure the sha1sum matches
 sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
+
+# FIXME: Patch out the /etc/shadow
+
+# install qemu
+
+# run it, in the background
+
+# SSH in
+
+# rofl
