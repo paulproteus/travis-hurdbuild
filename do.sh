@@ -13,6 +13,7 @@ sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
 
 # FIXME: Patch out the /etc/shadow
 sudo apt-get install kpartx
+sudo modprobe dm-mod
 sudo kpartx -a -v debian-hurd-20130504.img
 sudo mount /dev/mapper/loop0p1 /mnt
 echo 'root:$6$n.U8oNtR$/TJc3k951EJcCj.4D34k/lwiLobWlFVmpT91c19XYSWAk4KJtihZOYV0OqBR14FE4dvlmm5JUc7Tc2WWPzxT2.:16280:0:99999:7:::' > /tmp/new-shadow
