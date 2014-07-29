@@ -2,6 +2,11 @@
 set -e
 set -x
 
+# Download the thing
 wget http://ftp.debian-ports.org/debian-cd/hurd-i386/current/debian-hurd.img.tar.gz
+
+# Unpack it!
 tar zxvf debian-hurd.img.tar.gz
-sha1sum debian*img
+
+# Make sure the sha1sum matches
+sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
