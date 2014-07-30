@@ -11,14 +11,6 @@ tar zxvf debian-hurd.img.tar.gz
 # Make sure the sha1sum matches
 sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
 
-# get modules that we're missing, lulz
-wget http://download.openvz.org/kernel/branches/rhel6-2.6.32/042stab090.5/linux-image-2.6.32-openvz-042stab090.5-amd64_1_amd64.deb
-sudo dpkg -i --force-overwrite linux-image-2.6.32-openvz-042stab090.5-amd64_1_amd64.deb
-# Remove old busted modules directory
-sudo rm -rf /lib/modules/2.6.32-042stab090.5
-# Add ours in, in place
-sudo ln -s /lib/modules/2.6.32-openvz-042stab090.5-amd64 /lib/modules/2.6.32-042stab090.5
-
 # FIXME: Patch out the /etc/shadow
 sudo apt-get install kpartx
 sudo depmod -a
