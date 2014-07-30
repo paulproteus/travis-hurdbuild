@@ -15,7 +15,7 @@ sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
 sudo apt-get install qemu
 
 # run it, in the background
-/usr/sbin/qemu -redir tcp:5556::22 debian-hurd*img -curses
+qemu-system-x86_64 -redir tcp:5556::22 debian-hurd*img -curses
 
 # FIXME: Patch out the /etc/shadow
 sudo apt-get install kpartx
