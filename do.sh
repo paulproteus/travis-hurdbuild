@@ -12,7 +12,7 @@ tar zxvf debian-hurd.img.tar.gz
 sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
 
 # add trusty 14.04
-echo 'deb http://archive.ubuntu.com/ubuntu trusty main' >> /etc/apt/sources.list
+echo 'deb http://archive.ubuntu.com/ubuntu trusty main' | sudo tee -a /etc/apt/sources.list
 sudo apt-get update
 
 # install qemu
