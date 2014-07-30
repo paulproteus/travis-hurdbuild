@@ -11,6 +11,12 @@ tar zxvf debian-hurd.img.tar.gz
 # Make sure the sha1sum matches
 sha1sum debian*img | grep f40a83f105f4fffd4074867c196d798feea43468
 
+# install qemu
+sudo apt-get install qemu
+
+# run it, in the background
+qemu -redir tcp:5556::22 debian-hurd*img -curses
+
 # FIXME: Patch out the /etc/shadow
 sudo apt-get install kpartx
 sudo depmod -a
@@ -25,12 +31,6 @@ sudo mv /tmp/shadow /mnt/etc/shadow
 sudo umount /mnt
 
 exit 0
-
-# install qemu
-sudo apt-get install qemu
-
-# run it, in the background
-qemu -redir tcp:5556::22 debian-hurd*img -curses
 
 # Wait for SSH to come online
 ssh -p 5556 root@localhost echo hello from hurd
